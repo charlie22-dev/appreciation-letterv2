@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My faye</title>
+    <link rel="icon" type="image/x-icon" href="dawdasd.jpg">
+    <style>
+         body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            color: #b22222;
+            background-color: #ffe4e1;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+       
+        .flower {
+            position: absolute;
+            font-size: 1.5em;
+            color: #ff6347;
+            opacity: 0.6;
+            animation: glow 5s infinite alternate, drift 15s infinite linear;
+            cursor: pointer;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        @keyframes glow {
+            from { opacity: 0.6; }
+            to { opacity: 1; transform: scale(1.1); }
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(30px, -30px); }
+            100% { transform: translate(-30px, 30px); }
+        }
+
+        
+        .container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-height: 80vh;
+            z-index: 10;
+            overflow: hidden;
+            display: none; 
+            opacity: 0;
+        }
+
+        .container.open {
+            display: block; 
+            animation: openLetter 1s ease-out forwards; 
+        }
+
+        
+        @keyframes openLetter {
+            0% { transform: translate(-50%, -50%) scale(0.1); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        
+        .envelope {
+            background-color: #f8d7da;
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            padding: 20px;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .envelope:after {
+            content: "❤️";
+            font-size: 3em;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+       
+        .envelope p {
+            font-size: 1.2em;
+            color: #b22222;
+            text-align: center;
+        }
+
+        
+        .heart {
+            font-size: 5em; 
+            color: #ff69b4;
+            cursor: pointer;
+            transition: transform 0.2s ease, color 0.3s ease;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+        }
+
+        .heart:active {
+            transform: scale(1.2);
+        }
+
+        .heart:hover {
+            color: #ff1493;
+        }
+
+        
+        h1 {
+            font-size: 2.5em;
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.1em;
+            color: #b22222;
+            margin-bottom: 40px;
+            white-space: pre-wrap; 
+            max-height: 60vh;
+            overflow-y: scroll; 
+            transition: opacity 1s ease-out;
+        }
+
+       
+        .close-heart {
+            font-size: 2.5em;
+            color: #ff69b4;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .close-heart:active {
+            transform: scale(1.2);
+        }
+
+        .close-heart:hover {
+            color: #ff1493;
+        }
+
+    </style>
+</head>
+<body>
+
+    
+    <audio id="backgroundMusic" src="DANIEL - 은방울 (Lily of the Valley).mp3" type="audio/mpeg"></audio>
+
+    <div class="container" id="letter">
+        <h1> FOR MY CHARMING FAYE</h1>
+        <p>
+            My Dearest Faye,<br><br>
+
+            I just want to take a moment to say thank you—not just for giving me a chance, but for being such an incredible person in my life. From the moment I met you, you’ve been my inspiration, and honestly, I still can’t believe how lucky I am. I know this might seem unexpected, but I think deep down, you already know just how much I love you.
+            
+            You are, without a doubt, the most amazing person I’ve ever met. It’s crazy how much we have in common, like we were meant to find each other. And even though I may not be the most handsome or charming guy out there, you still chose to give me a chance. That means everything to me. I appreciate you so much—not just for the big things, but for all the little things you do, the ones that make my days brighter without you even realizing it.
+            
+            Now that I have the privilege of being your suitor, I want you to know I won’t take this for granted. I’ll do my best to become the best version of myself, not just for me, but for you—because you deserve that. And please, don’t ever feel like you have to carry everything on your own. I know you have silent battles, and I want you to know that you don’t have to face them alone. If you ever need someone to lean on, I’ll always be here—no judgment, no pressure. Just me, always willing to listen and be there for you.
+            
+            I could go on and on about all the things I love about you, but honestly? I love everything. I see so much of myself in you, and that only makes me love you more. Faye, you are truly one of a kind. You are beautiful—inside and out. And if you ever doubt that, let me remind you: you are more than just attractive. Your eyes, your smile, your heart, your kindness—everything about you is special. You are not just an "average girl." You are something rare, something precious, like an ocean filled with the most beautiful pearls.
+            
+            I love you, Faye. Always. 😊 ❤️<br><br>
+            Your Suitor, ali.
+        </p>
+        <div class="close-heart" id="closeHeart" onclick="closeLetter()">❤️</div>
+    </div>
+
+    <div class="envelope" id="envelope">
+        <p>Click the heart to open the letter!</p>
+        <div class="heart" id="heart" onclick="openLetter()">❤️</div>
+    </div>
+
+    <script>
+        const flowerTypes = ["🌸", "🌹", "🌺", "🌼"];
+
+        function generateFlowers() {
+            for (let i = 0; i < 100; i++) {
+                const flower = document.createElement("div");
+                flower.classList.add("flower");
+                flower.textContent = flowerTypes[Math.floor(Math.random() * flowerTypes.length)];
+                flower.style.top = `${Math.random() * 100}vh`;
+                flower.style.left = `${Math.random() * 100}vw`;
+                flower.style.fontSize = `${1.2 + Math.random()}em`;
+                flower.style.animationDelay = `${Math.random() * 5}s`;
+
+                flower.addEventListener("click", function() {
+                    flower.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+                    flower.style.opacity = "0";
+                    flower.style.transform = "scale(0)";
+
+                    setTimeout(() => {
+                        flower.style.opacity = "1";
+                        flower.style.transform = "scale(1)";
+                        flower.style.top = `${Math.random() * 100}vh`;
+                        flower.style.left = `${Math.random() * 100}vw`;
+                    }, 500);
+                });
+
+                document.body.appendChild(flower);
+            }
+        }
+
+        generateFlowers();
+
+        function openLetter() {
+            document.getElementById("letter").classList.add("open");
+            document.getElementById("envelope").style.display = "none"; 
+            
+            
+            const music = document.getElementById("backgroundMusic");
+            music.play();
+        }
+
+        function closeLetter() {
+            document.getElementById("letter").classList.remove("open");
+            document.getElementById("envelope").style.display = "block"; 
+            
+            
+            const music = document.getElementById("backgroundMusic");
+            music.pause();
+        }
+    </script>
+</body>
+</html>
